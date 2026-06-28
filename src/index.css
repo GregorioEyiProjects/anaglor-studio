@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-ag-dark: #080808;
+  --color-ag-card: #161616;
+  --color-ag-gold: #c9a96e;
+  --color-ag-gold-light: #e2c89a;
+  --color-ag-muted: #888880;
+  --color-ag-border: #222222;
+  --color-ag-btn-bg: #1f2028;
+  --color-ag-footer: #111111;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+.banner-gradient {
+  background: linear-gradient(135deg, #0d0d0d, #1a1508, #0d0d0d);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+/* * {
+  outline: 1px solid red;
+} */
+
+/* 
+COLORS
+
+#080808 = gris medio
+#161616 = gris claro
+#C9A96E = dorado
+#e2c89a = dorado claro
+#888880 = gris medio
+#222222 = gris oscuro
+#1f2028 = gris oscuro
+#111111 = gris oscuro
+#0f0f0f = negro casi puro
+#e0e0e0 = blanco suave
+
+*/
