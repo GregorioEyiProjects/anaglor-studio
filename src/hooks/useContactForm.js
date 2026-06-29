@@ -15,6 +15,7 @@ export const useContactForm = () => {
 
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     phone: "",
     disciplina: "",
     horario: "",
@@ -37,6 +38,7 @@ export const useContactForm = () => {
       setStatus(STATUS_FORM.SUCCESS);
       setFormData({
         name: "",
+        email: "",
         phone: "",
         disciplina: "",
         horario: "",

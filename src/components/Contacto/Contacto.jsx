@@ -42,7 +42,14 @@ const Contacto = () => {
               />
               <div>
                 <h3 className="text-lg font-bold">{contact.title}</h3>
-                <p className="text-ag-muted">{contact.description}</p>
+                <a
+                  href={contact.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-ag-muted hover:text-ag-gold cursor-pointer transition-colors duration-200"
+                >
+                  {contact.description}
+                </a>
               </div>
             </div>
           ))}
@@ -54,6 +61,13 @@ const Contacto = () => {
             name="name"
             value={formData.name}
             placeholder="Tu nombre"
+            onChange={handleChange}
+          />
+          <InputComponent
+            label="Email"
+            name="email"
+            value={formData.email}
+            placeholder="Tu email"
             onChange={handleChange}
           />
           <InputComponent

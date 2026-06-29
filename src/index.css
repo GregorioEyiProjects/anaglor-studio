@@ -25,6 +25,11 @@
     scroll-behavior: smooth;
   }
 }
+
+section[id],
+div[id] {
+  scroll-margin-top: 5rem; /* 80px */
+}
 /* * {
   outline: 1px solid red;
 } */

@@ -18,7 +18,7 @@ function App() {
       <Sobre />
       <Disciplinas />
       <Schedules />
-      <Events />
+      {/* <Events /> */}
       <Normas />
       <Contact />
       <Footer />

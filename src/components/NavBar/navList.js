@@ -14,11 +14,11 @@ const NAV_LIST = [
     title: "HORARIOS",
     href: "#horarios",
   },
-  {
+  /* {
     id: 4,
     title: "EVENTOS",
     href: "#eventos",
-  },
+  }, */
   {
     id: 5,
     title: "CONTACTO",

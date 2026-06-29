@@ -12,25 +12,29 @@ const CONTACT_DATA = [
     id: 1,
     icon: faLocationDot,
     title: "Dirección",
-    description: "Calle de la Danza, 123, Ciudad, País",
+    description: "Av. de Bruselas, 38, Salamanca, 28028 Madrid",
+    link: "https://maps.app.goo.gl/kM4wzKzHh7zKMtE57",
   },
   {
     id: 2,
     icon: faPhone,
     title: "Teléfono",
-    description: "+34 123 456 789",
+    description: "+34 654 643 717",
+    link: "tel:+34654643717",
   },
   {
     id: 3,
     icon: faEnvelope,
     title: "Correo electrónico",
     description: "ag@anaglorstudio.com",
+    link: "mailto:ag@anaglorstudio.com",
   },
   {
     id: 4,
     icon: faInstagram,
     title: "Instagram",
     description: "@anaglorstudio",
+    link: "https://www.instagram.com/anaglorstudio",
   },
 ];
 

@@ -1,6 +1,6 @@
 // src/components/navBar/NavBar.jsx
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NAV_LIST from "./navList";
 import GLOBAL_STYLES from "../../styles/global";
 
@@ -13,11 +13,25 @@ const ESTILOS_TAG = {
   navItem: "text-lg font-semibold",
   navLink:
     "text-white font-body font-light border-b-2 border-transparent hover:border-ag-gold transition duration-300",
-  dropdownMenu: `flex flex-col items-end border-t border-ag-border lg:hidden ${GLOBAL_STYLES.horizontalMargin}`,
+  dropdownMenu: `flex flex-col lg:hidden border-t border-ag-border 
+  px-4 overflow-hidden transition-all duration-300 
+  ease-in-out items-end ${GLOBAL_STYLES.horizontalMargin}`,
 };
 
 const NavBar = () => {
   const [menuAbierto, setMenuAbierto] = useState(false);
+
+  // Cerrar el menú al hacer scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (menuAbierto) setMenuAbierto(false);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Limpieza — elimina el listener cuando el componente se desmonta
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [menuAbierto]);
 
   return (
     <nav className={ESTILOS_TAG.navContainer}>
@@ -49,17 +63,20 @@ const NavBar = () => {
       </div>
 
       {/* Menú móvil desplegable */}
-      {menuAbierto && (
-        <ul className={ESTILOS_TAG.dropdownMenu}>
-          {NAV_LIST.map((item) => (
-            <li key={item.id} className={ESTILOS_TAG.navItem}>
-              <a href={item.href} className={ESTILOS_TAG.navLink}>
-                {item.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul
+        className={`${ESTILOS_TAG.dropdownMenu} ${menuAbierto ? "max-h-60 gap-4" : "max-h-0"}`}
+      >
+        {NAV_LIST.map((item) => (
+          <li key={item.id} className={ESTILOS_TAG.navItem}>
+            <a href={item.href} className={ESTILOS_TAG.navLink}>
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+      {/* {menuAbierto && (
+        
+      )} */}
     </nav>
   );
 };
