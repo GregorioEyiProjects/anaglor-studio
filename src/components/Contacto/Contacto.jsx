@@ -11,6 +11,7 @@ import CONTACT_DATA from "./contactData";
 import InputComponent from "../Global/InputComponent";
 import LIST_OF_COURSES from "../Disciplinas/list_of_courses";
 import ButtonComponent from "../Global/ButtonComponnent";
+import ContactIcon from "./ContactIcon";
 
 const ESTILOS_TAG = {
   grid: "grid grid-cols-1 md:grid-cols-2 md:gap-10",
@@ -20,10 +21,12 @@ const ESTILOS_TAG = {
   loadingSpinnerContainer: "flex items-center gap-2 text-ag-muted text-sm",
   loadingSpinner:
     "w-4 h-4 border-2 border-ag-gold border-t-transparent rounded-full animate-spin",
+  faIcon: "text-lg text-ag-gold cursor-pointer ",
 };
 
 const Contacto = () => {
   const { status, formData, handleChange, handleSubmit } = useContactForm();
+  //const [isHovered, setIsHovered] = useState(false);
 
   return (
     <section id="contacto" className={`${GlobalStyles.container} py-8`}>
@@ -35,11 +38,14 @@ const Contacto = () => {
       <div className={ESTILOS_TAG.grid}>
         <div className="">
           {CONTACT_DATA.map((contact) => (
-            <div key={contact.id} className={ESTILOS_TAG.gridItem}>
-              <FontAwesomeIcon
-                className="text-lg text-ag-gold"
+            <div key={contact.id} className={`${ESTILOS_TAG.gridItem}`}>
+              <ContactIcon
+                iconStyle={ESTILOS_TAG.faIcon}
                 icon={contact.icon}
+                link={contact.link}
+                hoverColor={contact.hoverColor}
               />
+
               <div>
                 <h3 className="text-lg font-bold">{contact.title}</h3>
                 <a

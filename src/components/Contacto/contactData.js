@@ -14,6 +14,7 @@ const CONTACT_DATA = [
     title: "Dirección",
     description: "Av. de Bruselas, 38, Salamanca, 28028 Madrid",
     link: "https://maps.app.goo.gl/kM4wzKzHh7zKMtE57",
+    hoverColor: "#EA4335",
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const CONTACT_DATA = [
     title: "Teléfono",
     description: "+34 654 643 717",
     link: "tel:+34654643717",
+    hoverColor: "#25D366",
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const CONTACT_DATA = [
     title: "Correo electrónico",
     description: "ag@anaglorstudio.com",
     link: "mailto:ag@anaglorstudio.com",
+    hoverColor: "#C9A96E",
   },
   {
     id: 4,
@@ -35,6 +38,7 @@ const CONTACT_DATA = [
     title: "Instagram",
     description: "@anaglorstudio",
     link: "https://www.instagram.com/anaglorstudio",
+    hoverColor: "#E1306C",
   },
 ];
 

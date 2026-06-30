@@ -26,8 +26,11 @@
   }
 }
 
-section[id],
-div[id] {
+#sobre,
+#disciplinas,
+#horarios,
+#eventos,
+#contacto {
   scroll-margin-top: 5rem; /* 80px */
 }
 /* * {
@@ -47,5 +50,7 @@ COLORS
 #111111 = gris oscuro
 #0f0f0f = negro casi puro
 #e0e0e0 = blanco suave
+
+Mejoras en el NavBar, Eventos, Contacto. Modificacio en el index.css para un top margen para las  sections
 
 */

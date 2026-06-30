@@ -21,16 +21,30 @@ const ESTILOS_TAG = {
 const NavBar = () => {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
+  const toggleMenu = () => {
+    setMenuAbierto(!menuAbierto);
+  };
+
   // Cerrar el menú al hacer scroll
   useEffect(() => {
+    let timeout;
     const handleScroll = () => {
-      if (menuAbierto) setMenuAbierto(false);
+      setMenuAbierto(false);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    if (menuAbierto) {
+      timeout = setTimeout(() => {
+        window.addEventListener("scroll", handleScroll);
+      }, 300); // 300ms de retraso antes de agregar el listener
+    } else {
+      window.removeEventListener("scroll", handleScroll);
+    }
 
     // Limpieza — elimina el listener cuando el componente se desmonta
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [menuAbierto]);
 
   return (
@@ -50,10 +64,7 @@ const NavBar = () => {
         </ul>
 
         {/* Botón hamburguesa */}
-        <button
-          className="flex lg:hidden text-white"
-          onClick={() => setMenuAbierto(!menuAbierto)}
-        >
+        <button className="flex lg:hidden text-white" onClick={toggleMenu}>
           {menuAbierto ? (
             <span className="text-2xl">x</span>
           ) : (
