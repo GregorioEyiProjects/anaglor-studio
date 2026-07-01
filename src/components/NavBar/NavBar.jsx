@@ -50,7 +50,12 @@ const NavBar = () => {
   return (
     <nav className={ESTILOS_TAG.navContainer}>
       <div className={ESTILOS_TAG.mainRow}>
-        <h1 className={ESTILOS_TAG.title}>AG Studio</h1>
+        <h1
+          className={ESTILOS_TAG.title}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          AG Studio
+        </h1>
 
         {/* Links desktop */}
         <ul className={ESTILOS_TAG.navList}>
