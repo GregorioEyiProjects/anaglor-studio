@@ -25,7 +25,8 @@ const ESTILOS_TAG = {
 };
 
 const Contacto = () => {
-  const { status, formData, handleChange, handleSubmit } = useContactForm();
+  const { status, errors, formData, handleChange, handleSubmit } =
+    useContactForm();
   //const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -66,22 +67,26 @@ const Contacto = () => {
             label="Nombre"
             name="name"
             value={formData.name}
-            placeholder="Tu nombre"
+            placeholder="Introduce tu nombre"
             onChange={handleChange}
+            error={errors.name}
           />
+
           <InputComponent
             label="Email"
             name="email"
             value={formData.email}
-            placeholder="Tu email"
+            placeholder="Introduce tu email"
             onChange={handleChange}
+            error={errors.email}
           />
           <InputComponent
             label="Teléfono"
             name="phone"
             value={formData.phone}
-            placeholder="Para contactarte"
+            placeholder="Introduce tu teléfono para estar en contacto"
             onChange={handleChange}
+            error={errors.phone}
           />
           <InputComponent
             label="Disciplina"
@@ -90,6 +95,7 @@ const Contacto = () => {
             placeholder="Tu disciplina"
             type="select"
             onChange={handleChange}
+            error={errors.disciplina}
             options={LIST_OF_COURSES.map((course) => ({
               value: course.name,
               label: course.name,
@@ -101,6 +107,7 @@ const Contacto = () => {
             value={formData.horario}
             placeholder="Ej: mañanas entre semanas"
             onChange={handleChange}
+            error={errors.horario}
           />
           <InputComponent
             label="Mensaje"

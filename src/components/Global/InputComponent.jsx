@@ -13,6 +13,7 @@ const InputComponent = ({
   rows = 4,
   value,
   onChange,
+  error,
 }) => {
   return (
     <div className={`flex flex-col ${className}`}>
@@ -52,6 +53,7 @@ const InputComponent = ({
           onChange={onChange}
         />
       )}
+      {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 // src/hooks/useContactForm.js
 import { useState } from "react";
 import { sendContactEmail } from "../services/emailService";
+import { validateForm } from "../utils/formMethods";
 
 const STATUS_FORM = {
   IDLE: "idle",
@@ -12,12 +13,13 @@ const STATUS_FORM = {
 
 export const useContactForm = () => {
   const [status, setStatus] = useState(STATUS_FORM.IDLE);
+  const [errors, setErrors] = useState({});
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    disciplina: "",
+    disciplina: "Pilates Máquina",
     horario: "",
     mensaje: "",
   });
@@ -32,7 +34,17 @@ export const useContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const validationErrors = validateForm(formData);
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setErrors({}); // Clear previous errors
     setStatus(STATUS_FORM.LOADING);
+
     try {
       await sendContactEmail(formData);
       setStatus(STATUS_FORM.SUCCESS);
@@ -40,7 +52,7 @@ export const useContactForm = () => {
         name: "",
         email: "",
         phone: "",
-        disciplina: "",
+        disciplina: "Pilates Máquina",
         horario: "",
         mensaje: "",
       });
@@ -49,5 +61,5 @@ export const useContactForm = () => {
     }
   };
 
-  return { status, formData, handleChange, handleSubmit };
+  return { status, errors, formData, handleChange, handleSubmit };
 };
