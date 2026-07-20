@@ -3,11 +3,13 @@ import React from "react";
 import ButtonComponent from "../Global/ButtonComponnent";
 import STUDIO_CONFIG from "../../config/studio";
 import GLOBAL_STYLES from "../../styles/global";
+import VideoComponent from "./HeroVideo";
 
 const whatsappLink = `https://wa.me/${STUDIO_CONFIG.whatsapp}?text=Hola,%20me%20gustaría%20información%20sobre%20las%20clases`;
 
 const ESTILOS_TAG = {
-  container: `flex flex-col min-h-screen text-white justify-center items-center text-black  ${GLOBAL_STYLES.horizontalMargin}`,
+  old_container: `flex flex-col min-h-screen text-white justify-center items-center text-black  ${GLOBAL_STYLES.horizontalMargin}`,
+  container: `relative overflow-hidden flex flex-col min-h-screen text-white justify-center items-center text-black  ${GLOBAL_STYLES.horizontalMargin}`,
   titleContainer: "flex flex-col items-center mb-4",
   title1: "text-6xl lg:text-8xl text-ag-muted font-display font-light",
   title2:
@@ -21,20 +23,30 @@ const ESTILOS_TAG = {
 const Hero = () => {
   return (
     <div className={ESTILOS_TAG.container}>
-      <span className={ESTILOS_TAG.text}>Madrid · Av. Bruselas 8</span>
-      <div className={ESTILOS_TAG.titleContainer}>
-        <h1 className={ESTILOS_TAG.title1}>AnaGlor</h1>
-        <h2 className={ESTILOS_TAG.title2}>Studio</h2>
-      </div>
+      
+      {/* Capoa 1 */}
+      <VideoComponent url={STUDIO_CONFIG.heroVideoUrlModified} />
 
-      <p className={ESTILOS_TAG.label}>
-        PILATES <span className="font-bold ">·</span> BARRE <span>·</span> ART
-        MOTION
-      </p>
+      {/* Capa 2 */}
+      <div className="absolute inset-0 bg-black/40"/>
 
-      <div className={ESTILOS_TAG.btnContainer}>
-        <ButtonComponent text="Reservar clase" href={whatsappLink} />
-        <ButtonComponent text="Ver disciplinas" href="#disciplinas" />
+      {/* Capa 3 */}
+      <div className="relative z-10 flex flex-col items-center">
+        <span className={ESTILOS_TAG.text}>Madrid · Av. Bruselas 8</span>
+        <div className={ESTILOS_TAG.titleContainer}>
+          <h1 className={ESTILOS_TAG.title1}>AnaGlor</h1>
+          <h2 className={ESTILOS_TAG.title2}>Studio</h2>
+        </div>
+
+        <p className={ESTILOS_TAG.label}>
+          PILATES <span className="font-bold ">·</span> BARRE <span>·</span> ART
+          MOTION
+        </p>
+
+        <div className={ESTILOS_TAG.btnContainer}>
+          <ButtonComponent text="Reservar clase" href={whatsappLink} />
+          <ButtonComponent text="Ver disciplinas" href="#disciplinas" />
+        </div>
       </div>
     </div>
   );
