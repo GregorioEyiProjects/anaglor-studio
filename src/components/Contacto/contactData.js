@@ -6,21 +6,26 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import STUDIO_CONFIG from "../../config/studio";
+
+const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  STUDIO_CONFIG.direccion,
+)}`;
 
 const CONTACT_DATA = [
   {
     id: 1,
     icon: faLocationDot,
     title: "Dirección",
-    description: "Av. de Bruselas, 38, Salamanca, 28028 Madrid",
-    link: "https://maps.app.goo.gl/kM4wzKzHh7zKMtE57",
+    description: STUDIO_CONFIG.direccion,
+    link: mapsLink,
     hoverColor: "#EA4335",
   },
   {
     id: 2,
     icon: faPhone,
     title: "Teléfono",
-    description: "+34 654 643 717",
+    description: STUDIO_CONFIG.telefono,
     link: "tel:+34654643717",
     hoverColor: "#25D366",
   },
@@ -28,16 +33,16 @@ const CONTACT_DATA = [
     id: 3,
     icon: faEnvelope,
     title: "Correo electrónico",
-    description: "ag@anaglorstudio.com",
-    link: "mailto:ag@anaglorstudio.com",
+    description: STUDIO_CONFIG.email,
+    link: `mailto:${STUDIO_CONFIG.email}`,
     hoverColor: "#C9A96E",
   },
   {
     id: 4,
     icon: faInstagram,
     title: "Instagram",
-    description: "@anaglorstudio",
-    link: "https://www.instagram.com/anaglorstudio",
+    description: STUDIO_CONFIG.instagram,
+    link: `https://www.instagram.com/${STUDIO_CONFIG.instagram.replace("@", "")}`,
     hoverColor: "#E1306C",
   },
 ];

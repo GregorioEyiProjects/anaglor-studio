@@ -1,6 +1,5 @@
 // src/components/Global/InputComponent.jsx
 
-import React from "react";
 import GLOBAL_STYLES from "../../styles/global";
 
 const InputComponent = ({
@@ -15,6 +14,14 @@ const InputComponent = ({
   onChange,
   error,
 }) => {
+  const errorId = error ? `${name}-error` : undefined;
+  const commonProps = {
+    id: name,
+    name,
+    "aria-invalid": Boolean(error),
+    "aria-describedby": errorId,
+  };
+
   return (
     <div className={`flex flex-col ${className}`}>
       <label htmlFor={name} className="font-bold text-sm uppercase font-body">
@@ -22,7 +29,7 @@ const InputComponent = ({
       </label>
       {type === "select" ? (
         <select
-          name={name}
+          {...commonProps}
           placeholder={placeholder}
           className={`${GLOBAL_STYLES.inputStyle} w-full`}
           value={value}
@@ -36,7 +43,7 @@ const InputComponent = ({
         </select>
       ) : type === "textarea" ? (
         <textarea
-          name={name}
+          {...commonProps}
           placeholder={placeholder}
           className={`${GLOBAL_STYLES.inputStyle} `}
           rows={rows}
@@ -45,15 +52,23 @@ const InputComponent = ({
         />
       ) : (
         <input
-          name={name}
+          {...commonProps}
           placeholder={placeholder}
           type={type}
           className={`${GLOBAL_STYLES.inputStyle} w-full`}
           value={value}
           onChange={onChange}
+          autoComplete={
+            { name: "name", email: "email", phone: "tel" }[name]
+          }
+          inputMode={name === "phone" ? "tel" : undefined}
         />
       )}
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      {error && (
+        <p id={errorId} className="mb-3 text-sm text-red-400" role="alert">
+          {error}
+        </p>
+      )}
     </div>
   );
 };

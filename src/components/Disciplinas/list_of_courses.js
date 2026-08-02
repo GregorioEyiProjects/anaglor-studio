@@ -28,7 +28,7 @@ const LIST_OF_COURSES = [
   },
   {
     id: 2,
-    name: "Pilates Aereo",
+    name: "Pilates Aéreo",
     icon: "🪢",
     description:
       "Fuerza, movilidad y alineación postural con hamaca aérea. Flexibilidad, core y coordinación con un toque acrobático.",
@@ -114,7 +114,7 @@ const LIST_OF_COURSES = [
       "Personalizadas según tus objetivos. Disponibles para embarazadas. Diferentes enfoques de movimiento.",
     numberOfClasses: [
       {
-        label: "1 clases/mes",
+        label: "1 clase",
         price: 60,
       },
       {

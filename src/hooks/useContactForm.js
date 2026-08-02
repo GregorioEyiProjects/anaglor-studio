@@ -56,7 +56,7 @@ export const useContactForm = () => {
         horario: "",
         mensaje: "",
       });
-    } catch (error) {
+    } catch {
       setStatus(STATUS_FORM.ERROR);
     }
   };

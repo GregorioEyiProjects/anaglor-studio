@@ -1,4 +1,3 @@
-import React from "react";
 import GLOBAL_STYLES from "../../styles/global";
 
 const ESTILOS_TAG = {

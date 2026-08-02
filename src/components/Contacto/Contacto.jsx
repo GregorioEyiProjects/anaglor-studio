@@ -1,10 +1,7 @@
 // src/components/Contacto/Contacto.jsx
 
-import React from "react";
-import { useState } from "react";
 import { useContactForm } from "../../hooks/useContactForm";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DisplayTextContainer from "../DisplayText";
 import GlobalStyles from "../../styles/global";
 import CONTACT_DATA from "./contactData";
@@ -16,7 +13,7 @@ import ContactIcon from "./ContactIcon";
 const ESTILOS_TAG = {
   grid: "grid grid-cols-1 md:grid-cols-2 md:gap-10",
   gridItem:
-    "grid gap-2 md:grid grid-cols-[0.1fr_0.9fr] md:gap-1 p-4 rounded-lg shadow-md items-center",
+    "liquid-glass-soft liquid-glass-interactive mb-3 grid grid-cols-[3rem_1fr] items-center gap-2 overflow-hidden rounded-lg p-4 md:gap-1",
   buttonContainer: "flex justify-center md:justify-end",
   loadingSpinnerContainer: "flex items-center gap-2 text-ag-muted text-sm",
   loadingSpinner:
@@ -30,13 +27,16 @@ const Contacto = () => {
   //const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section id="contacto" className={`${GlobalStyles.container} py-8`}>
+    <section
+      id="contacto"
+      className={`${GlobalStyles.container} min-h-[calc(100svh-5rem)] py-8`}
+    >
       <DisplayTextContainer
         spanText="Reservas e información"
         h2Text="Empieza"
         emText="hoy"
       />
-      <div className={ESTILOS_TAG.grid}>
+      <div className={ESTILOS_TAG.grid} data-reveal>
         <div className="">
           {CONTACT_DATA.map((contact) => (
             <div key={contact.id} className={`${ESTILOS_TAG.gridItem}`}>
@@ -63,6 +63,9 @@ const Contacto = () => {
         </div>
 
         <form onSubmit={handleSubmit}>
+          <p className="mb-5 text-sm leading-6 text-ag-muted">
+            Déjanos un email o un teléfono para responderte personalmente.
+          </p>
           <InputComponent
             label="Nombre"
             name="name"
@@ -77,6 +80,7 @@ const Contacto = () => {
             name="email"
             value={formData.email}
             placeholder="Introduce tu email"
+            type="email"
             onChange={handleChange}
             error={errors.email}
           />
@@ -85,6 +89,7 @@ const Contacto = () => {
             name="phone"
             value={formData.phone}
             placeholder="Introduce tu teléfono para estar en contacto"
+            type="tel"
             onChange={handleChange}
             error={errors.phone}
           />

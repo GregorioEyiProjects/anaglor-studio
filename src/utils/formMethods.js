@@ -8,20 +8,18 @@ export const validateForm = (formData) => {
     errors.name = "El nombre es obligatorio";
   }
 
-  if (!formData.email.trim()) {
-    errors.email = "El email es obligatorio";
-  } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+  if (!formData.email.trim() && !formData.phone.trim()) {
+    errors.email = "Indica un email o un teléfono";
+  } else if (formData.email.trim() && !/\S+@\S+\.\S+/.test(formData.email)) {
     errors.email = "El email no es válido";
   }
 
-  if (!formData.phone.trim()) {
-    errors.phone = "El teléfono es obligatorio";
-  } else if (!/^[\d\s\-\+]{9,15}$/.test(formData.phone)) {
-    errors.phone = "El teléfono debe tener 9 y 15 dígitos";
+  if (formData.phone.trim() && !/^[\d\s+-]{9,15}$/.test(formData.phone)) {
+    errors.phone = "El teléfono debe tener entre 9 y 15 dígitos";
   }
 
   if (!formData.disciplina.trim() || formData.disciplina === "") {
-    errors.disciplina = "La disciplina nno valida";
+    errors.disciplina = "Selecciona una disciplina válida";
   }
 
   if (!formData.horario.trim()) {

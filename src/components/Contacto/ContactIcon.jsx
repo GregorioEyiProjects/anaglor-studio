@@ -1,6 +1,6 @@
 // src/components/Contacto/ContactIcon.jsx
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ContactIcon = ({ icon, link, hoverColor, iconStyle = "" }) => {

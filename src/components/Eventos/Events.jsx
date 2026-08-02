@@ -1,7 +1,5 @@
 // src/components/Eventos/Events.jsx
-import React from "react";
 import DisplayTextContainer from "../DisplayText";
-import EVENTS_DATA from "./eventsData";
 import ButtonComponent from "../Global/ButtonComponnent";
 import GlobalStyles from "../../styles/global";
 

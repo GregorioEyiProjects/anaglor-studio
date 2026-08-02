@@ -1,7 +1,5 @@
 // src/utils/descargarHorario.js
 
-import html2canvas from "html2canvas";
-
 /* 
 #C9A96E — dorado — es tu ag-gold, el color principal de acento
 #888880 — gris medio — es tu ag-muted, para texto secundario
@@ -9,6 +7,8 @@ import html2canvas from "html2canvas";
 #9a968f — gris cálido  */
 
 const descargarHorario = async (tablaContentRef) => {
+  const { default: html2canvas } = await import("html2canvas");
+
   //Contenedor temporal
   const wrapper = document.createElement("div");
   wrapper.style.backgroundColor = "#080808";
@@ -18,7 +18,7 @@ const descargarHorario = async (tablaContentRef) => {
   // Título
   const titulo = document.createElement("h1");
   titulo.style.color = "#C9A96E";
-  titulo.style.fontFamily = "Cormorant Garamond, serif";
+  titulo.style.fontFamily = "Inter, sans-serif";
   titulo.style.fontSize = "28px";
   titulo.style.fontWeight = "300";
   titulo.style.letterSpacing = "0.1em";

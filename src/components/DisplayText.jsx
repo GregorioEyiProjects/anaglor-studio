@@ -1,5 +1,4 @@
 // src/components/DisplayText.jsx
-import React from "react";
 
 const DisplayTextContainer = ({ spanText, h2Text, emText }) => {
   const ESTILOS_TAG = {

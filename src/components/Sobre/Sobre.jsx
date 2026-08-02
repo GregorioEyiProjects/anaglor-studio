@@ -1,7 +1,5 @@
 // src/components/Sobre/About.jsx
 
-import React from "react";
-
 import GlobalStyles from "../../styles/global";
 import DisplayTextContainer from "../DisplayText";
 import ButtonComponent from "../Global/ButtonComponnent";
@@ -19,9 +17,9 @@ const ESTILOS_TAG = {
   divider: "my-6 h-px w-20 bg-ag-gold",
   description: "mt-4 max-w-xl text-lg leading-8 text-ag-muted",
   descriptionStrong: "font-semibold text-white",
-  statsGrid: "grid grid-cols-2 gap-px bg-ag-border",
+  statsGrid: "grid grid-cols-2 gap-2",
   statsContainer:
-    "flex min-h-44 flex-col items-center justify-center bg-ag-card px-4 py-6 text-center",
+    "liquid-glass-soft liquid-glass-interactive flex min-h-44 flex-col items-center justify-center overflow-hidden rounded-lg px-4 py-6 text-center",
   statValue: "font-display text-5xl leading-none text-ag-gold",
   statLabel:
     "mt-3 font-display max-w-28 text-sm uppercase tracking-[0.35em] text-[#8f8a80]",
@@ -29,7 +27,10 @@ const ESTILOS_TAG = {
 
 const Sobre = () => {
   return (
-    <section id="sobre" className={`${ESTILOS_TAG.container} py-8`}>
+    <section
+      id="sobre"
+      className={`${ESTILOS_TAG.container} py-8`}
+    >
       <DisplayTextContainer
         spanText="Sobre el estudio"
         h2Text="Movimiento"
@@ -59,16 +60,14 @@ const Sobre = () => {
 
           <div className="mt-4 w-full">
             <ButtonComponent
-              text="Conocer más →"
-              onClick={() => {
-                window.location.href = "#contacto";
-              }}
+              text="Hablar con el estudio"
+              href="#contacto"
             />
           </div>
         </div>
 
         <div className={ESTILOS_TAG.statsGrid}>
-          {STATS.map((stat, index) => (
+          {STATS.map((stat) => (
             <div key={stat.label} className={ESTILOS_TAG.statsContainer}>
               <div className={ESTILOS_TAG.statValue}>{stat.value}</div>
               <div className={ESTILOS_TAG.statLabel}>{stat.label}</div>
