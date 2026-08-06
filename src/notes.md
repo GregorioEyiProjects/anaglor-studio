@@ -21,3 +21,12 @@ USING (true);
 # Para las imagenes
 
 npm install html2canvas
+
+# Para cambiar el puerto (Si usas Vite, cambia el puerto en vite.config.js:)
+
+export default {
+server: {
+port: 5174,
+strictPort: true
+}
+}

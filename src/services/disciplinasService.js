@@ -1,3 +1,5 @@
+//src/services/disciplinasService.js
+
 import supabase from "./supabaseClient";
 
 export const getDisciplinas = async () => {

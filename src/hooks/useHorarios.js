@@ -12,6 +12,7 @@ const useHorarios = () => {
     const fetchHorarios = async () => {
       try {
         const data = await getHorarios();
+        //console.log("Fetched horarios:", data);
         setHorarios(data);
       } catch (error) {
         setError(error);

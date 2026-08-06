@@ -1,10 +1,7 @@
 // src/components/Contacto/Contacto.jsx
 
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useContactForm } from "../../hooks/useContactForm";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DisplayTextContainer from "../DisplayText";
 import GlobalStyles from "../../styles/global";
 import CONTACT_DATA from "./contactData";
@@ -16,7 +13,7 @@ import ContactIcon from "./ContactIcon";
 const ESTILOS_TAG = {
   grid: "grid grid-cols-1 md:grid-cols-2 md:gap-10",
   gridItem:
-    "grid gap-2 md:grid grid-cols-[0.1fr_0.9fr] md:gap-1 p-4 rounded-lg shadow-md items-center",
+    "liquid-glass-soft liquid-glass-interactive mb-3 grid grid-cols-[3rem_1fr] items-center gap-2 overflow-hidden rounded-lg p-4 md:gap-1",
   buttonContainer: "flex justify-center md:justify-end",
   loadingSpinnerContainer: "flex items-center gap-2 text-ag-muted text-sm",
   loadingSpinner:
@@ -27,7 +24,18 @@ const ESTILOS_TAG = {
 const Contacto = () => {
   const { status, errors, formData, handleChange, handleSubmit } =
     useContactForm();
-  //const [isHovered, setIsHovered] = useState(false);
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Cuando el envío es exitoso, mostramos el mensaje y lo ocultamos a los 3s
+  useEffect(() => {
+    if (status === "success") {
+      setIsSubmitted(true);
+      const timer = setTimeout(() => setIsSubmitted(false), 3000);
+      return () => clearTimeout(timer);
+      s;
+    }
+  }, [status]);
 
   return (
     <section id="contacto" className={`${GlobalStyles.container} py-8`}>
@@ -37,9 +45,13 @@ const Contacto = () => {
         emText="hoy"
       />
       <div className={ESTILOS_TAG.grid}>
-        <div className="">
+        <div>
           {CONTACT_DATA.map((contact) => (
-            <div key={contact.id} className={`${ESTILOS_TAG.gridItem}`}>
+            <div
+              key={contact.id}
+              className={`${ESTILOS_TAG.gridItem} cursor-pointer`}
+              onClick={() => window.open(contact.link, "_blank")}
+            >
               <ContactIcon
                 iconStyle={ESTILOS_TAG.faIcon}
                 icon={contact.icon}
@@ -63,6 +75,9 @@ const Contacto = () => {
         </div>
 
         <form onSubmit={handleSubmit}>
+          <p className="mb-5 text-sm leading-6 text-ag-muted">
+            Déjanos un email para responderte personalmente.
+          </p>
           <InputComponent
             label="Nombre"
             name="name"
@@ -120,8 +135,8 @@ const Contacto = () => {
           />
 
           {/* feedback de estado */}
-          {status === "success" && (
-            <p className="text-ag-gold">¡Mensaje enviado!</p>
+          {status === "success" && isSubmitted && (
+            <p className={`text-ag-gold `}>¡Mensaje enviado!</p>
           )}
           {status === "error" && (
             <p className="text-red-500">Error al enviar.</p>

@@ -19,9 +19,9 @@ const ESTILOS_TAG = {
   divider: "my-6 h-px w-20 bg-ag-gold",
   description: "mt-4 max-w-xl text-lg leading-8 text-ag-muted",
   descriptionStrong: "font-semibold text-white",
-  statsGrid: "grid grid-cols-2 gap-px bg-ag-border",
+  statsGrid: "grid grid-cols-2 gap-2",
   statsContainer:
-    "flex min-h-44 flex-col items-center justify-center bg-ag-card px-4 py-6 text-center",
+    "liquid-glass-soft liquid-glass-interactive flex min-h-44 flex-col items-center justify-center overflow-hidden rounded-lg px-4 py-6 text-center",
   statValue: "font-display text-5xl leading-none text-ag-gold",
   statLabel:
     "mt-3 font-display max-w-28 text-sm uppercase tracking-[0.35em] text-[#8f8a80]",
@@ -59,7 +59,7 @@ const Sobre = () => {
 
           <div className="mt-4 w-full">
             <ButtonComponent
-              text="Conocer más →"
+              text="Hablar con el estudio"
               onClick={() => {
                 window.location.href = "#contacto";
               }}

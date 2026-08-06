@@ -1,10 +1,11 @@
+// src/components/Global/ButtonComponnent.jsx
 import React from "react";
 import GLOBAL_STYLES from "../../styles/global";
 
 const ButtonComponent = ({ text, onClick, href, type, className = "" }) => {
   if (href) {
     return (
-      <a href={href} className={`${GLOBAL_STYLES.buttonStyle} ${className}`}>
+      <a href={href} className={`${className} ${GLOBAL_STYLES.buttonStyle} `}>
         {text}
       </a>
     );
@@ -12,7 +13,7 @@ const ButtonComponent = ({ text, onClick, href, type, className = "" }) => {
 
   return (
     <button
-      className={`${GLOBAL_STYLES.buttonStyle} ${className}`}
+      className={`${className} ${GLOBAL_STYLES.buttonStyle} `}
       onClick={onClick}
       type={type || "button"}
     >
