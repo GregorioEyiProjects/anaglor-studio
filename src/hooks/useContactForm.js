@@ -26,10 +26,19 @@ export const useContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
+
+    if (errors[name]) {
+      setErrors((prevErrors) => {
+        const newErrors = { ...prevErrors };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
   const handleSubmit = async (e) => {

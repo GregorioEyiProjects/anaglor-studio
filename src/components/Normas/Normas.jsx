@@ -6,7 +6,7 @@ import RULES_DATA from "./normasData";
 const ESTILOS_TAG = {
   grid: "grid grid-cols-1 md:grid-cols-2 items-stretch gap-1",
   gridItem:
-    "grid grid-cols-1 bg-ag-card items-stretch md:grid-cols-[0.1fr_0.9fr] border border-ag-border rounded-sm p-6",
+    "liquid-glass-soft liquid-glass-interactive grid grid-cols-1 items-stretch overflow-hidden rounded-lg p-6 md:grid-cols-[0.1fr_0.9fr]",
   ruleText: "text-base font-semibold font-body text-white",
   description: "text-ag-muted font-body text-base",
 };

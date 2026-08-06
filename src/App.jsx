@@ -9,6 +9,7 @@ import Events from "./components/Eventos/Events";
 import Normas from "./components/Normas/Normas";
 import Contact from "./components/Contacto/Contacto";
 import Footer from "./components/Footer/Footer";
+import Galeria from "./components/Galeria/Galeria";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <NavBar />
       <Hero />
       <Sobre />
+      <Galeria />
       <Disciplinas />
       <Schedules />
       {/* <Events /> */}
