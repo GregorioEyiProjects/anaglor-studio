@@ -17,6 +17,7 @@ function App() {
       <NavBar />
       <Hero />
       <Sobre />
+      {/* Seccion del estudio */}
       <Galeria />
       <Disciplinas />
       <Schedules />

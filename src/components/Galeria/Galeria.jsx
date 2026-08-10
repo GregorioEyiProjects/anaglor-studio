@@ -177,7 +177,7 @@ const Galeria = () => {
               loading="lazy"
               decoding="async"
               className={`size-full object-cover transition-transform duration-700 group-hover:scale-[1.025] ${IMAGE_POSITIONS[index] || "object-center"}`}
-              data-parallax
+              // data-parallax
             />
             <span className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-linear-to-t from-black/85 to-transparent px-4 pb-4 pt-12 text-[10px] font-medium uppercase tracking-[0.12em] text-white sm:text-xs">
               {foto.label}
