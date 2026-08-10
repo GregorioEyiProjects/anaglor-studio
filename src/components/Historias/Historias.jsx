@@ -281,7 +281,7 @@ const Historias = ({ compact = false }) => {
                     </span>
                   ))}
                 </div>
-                <div className="mt-10 flex items-center justify-between">
+                <div className="pt-11 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="grid size-9 place-items-center border border-ag-gold bg-black/40 font-display text-sm text-ag-gold">
                       AG
@@ -293,7 +293,7 @@ const Historias = ({ compact = false }) => {
                   <button
                     type="button"
                     onClick={() => setPausada((actual) => !actual)}
-                    className="grid size-10 place-items-center text-sm text-white"
+                    className="grid size-11 place-items-center text-sm text-white"
                     aria-label={
                       pausada ? "Reanudar historia" : "Pausar historia"
                     }
