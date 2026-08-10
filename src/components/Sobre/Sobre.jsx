@@ -21,7 +21,7 @@ const ESTILOS_TAG = {
   descriptionStrong: "font-semibold text-white",
   statsGrid: "grid grid-cols-2 gap-2",
   statsContainer:
-    "flex flex-col justify-center min-h-44 border-[0.5px] border-ag-gold items-center overflow-hidden rounded-lg px-4 py-6 text-center",
+    "flex flex-col justify-center min-h-44 border-[2px] border-ag-card items-center overflow-hidden rounded-lg px-4 py-6 text-center",
   statValue: "font-display text-5xl leading-none text-ag-gold ",
   statLabel:
     "mt-3 font-display max-w-28 text-sm uppercase tracking-[0.35em] text-[#8f8a80]",
