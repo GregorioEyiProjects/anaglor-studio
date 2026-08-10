@@ -12,7 +12,7 @@ const STATS = [
   { value: "5", label: "Días a la semana" },
   { value: "0", label: "Matrícula" },
 ];
-
+/* statsContainer: flex flex-col justify-center */
 const ESTILOS_TAG = {
   container: GlobalStyles.container,
   grid: "grid grid-cols-1 gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10",
@@ -21,8 +21,8 @@ const ESTILOS_TAG = {
   descriptionStrong: "font-semibold text-white",
   statsGrid: "grid grid-cols-2 gap-2",
   statsContainer:
-    "liquid-glass-soft liquid-glass-interactive flex min-h-44 flex-col items-center justify-center overflow-hidden rounded-lg px-4 py-6 text-center",
-  statValue: "font-display text-5xl leading-none text-ag-gold",
+    "flex flex-col justify-center min-h-44 border-[0.5px] border-ag-gold items-center overflow-hidden rounded-lg px-4 py-6 text-center",
+  statValue: "font-display text-5xl leading-none text-ag-gold ",
   statLabel:
     "mt-3 font-display max-w-28 text-sm uppercase tracking-[0.35em] text-[#8f8a80]",
 };
