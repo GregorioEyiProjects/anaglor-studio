@@ -256,7 +256,7 @@ const Historias = ({ compact = false }) => {
               />
               <div className="absolute inset-0 bg-linear-to-b from-black/65 via-transparent to-black/90" />
 
-              <div className="absolute inset-x-0 top-0 z-10 px-4 pt-4 sm:pt-5">
+              <div className="absolute inset-x-0 top-0 z-20 px-4 pt-4 sm:pt-5">
                 <div className="flex gap-1.5">
                   {historia.slides.map((item, index) => (
                     <span
