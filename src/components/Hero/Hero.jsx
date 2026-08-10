@@ -20,7 +20,7 @@ const Hero = () => {
         src={heroImage}
         alt="Sala de Pilates Reformer de AnaGlor Studio"
         className="hero-image absolute inset-0 h-full w-full object-cover object-[58%_center] sm:object-[54%_center] lg:object-center"
-        data-parallax
+        // data-parallax
       />
 
       <div
