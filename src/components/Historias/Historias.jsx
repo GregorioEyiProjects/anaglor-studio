@@ -232,7 +232,7 @@ const Historias = ({ compact = false }) => {
             <button
               type="button"
               onClick={cerrar}
-              className="absolute right-4 top-4 z-20 grid size-11 place-items-center border border-white/25 bg-black/50 text-lg text-white transition-colors hover:border-ag-gold hover:text-ag-gold sm:right-6 sm:top-6"
+              className="absolute right-4 top-4 z-30 grid size-11 place-items-center border border-white/25 bg-black/50 text-lg text-white transition-colors hover:border-ag-gold hover:text-ag-gold sm:right-6 sm:top-6"
               aria-label="Cerrar historias"
             >
               <FontAwesomeIcon icon={faXmark} />
