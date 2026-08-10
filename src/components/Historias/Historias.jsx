@@ -161,7 +161,7 @@ const Historias = ({ compact = false }) => {
                     />
                   </span>
                 </span>
-                <span className="w-full truncate text-[10px] font-medium text-[#dedbd4] transition-colors group-hover:text-ag-gold">
+                <span className="w-full truncate text-[10px] font-medium text-default-text transition-colors group-hover:text-ag-gold">
                   {item.title}
                 </span>
               </button>
@@ -208,7 +208,7 @@ const Historias = ({ compact = false }) => {
                     />
                   </span>
                 </span>
-                <span className="text-xs font-medium text-[#dedbd4] transition-colors group-hover:text-ag-gold">
+                <span className="text-xs font-medium text-default-text transition-colors group-hover:text-ag-gold">
                   {item.title}
                 </span>
               </button>
@@ -281,7 +281,7 @@ const Historias = ({ compact = false }) => {
                     </span>
                   ))}
                 </div>
-                <div className="mt-4 flex items-center justify-between">
+                <div className="mt-10 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="grid size-9 place-items-center border border-ag-gold bg-black/40 font-display text-sm text-ag-gold">
                       AG
