@@ -16,7 +16,12 @@ const ESTILOS_TAG = {
   banner: "h-55  flex items-center justify-center border-b border-ag-border",
   bannerText: "font-display italic text-2xl text-ag-gold-light",
   grid: "grid grid-cols-1 items-stretch gap-8 lg:grid-cols-[1fr_1fr] lg:gap-10",
-  card: "bg-ag-card border border-ag-border relative overflow-hidden ", //hover:border-ag-gold transition-colors duration-300
+  card: "bg-ag-card border border-ag-border relative overflow-hidden grid md:grid-cols-[minmax(240px,340px)_1fr]",
+  media:
+    "relative flex items-center justify-center border-b border-ag-border bg-black/20  md:border-b-0 md:border-r md:min-h-[520px]",
+  poster: "h-auto max-h-[560px] w-full max-w-[300px] object-contain shadow-2xl",
+  fallbackBanner:
+    "min-h-[260px] flex items-center justify-center border-b border-ag-border md:border-b-0 md:border-r",
   fecha: "text-ag-gold text-xs tracking-widest uppercase",
   badge:
     "absolute top-4 right-4 rounded-md bg-ag-gold px-2 py-1 text-xs font-semibold font-body uppercase tracking-[0.2em] text-black",
@@ -52,20 +57,34 @@ const Events = () => {
       />
 
       <div className={ESTILOS_TAG.grid}>
-        {eventos.map((event) => (
-          <div key={event.id}>
-            {event.proximamente ? (
-              <div key={event.id} className={ESTILOS_TAG.cardPlaceholder}>
-                <span className={ESTILOS_TAG.addIcon}>+</span>
-                <p className={ESTILOS_TAG.proximamenteText}>Próximamente</p>
-                <p className={ESTILOS_TAG.proximamenteSubText}>
-                  Síguenos en Instagram para no perdértelo
-                </p>
-              </div>
-            ) : (
+        {eventos
+          .filter((event) => event.proximamente)
+          .map((event) => {
+            //console.log("Event image URL:", event.image_url); // Log the image URL for debugging
+
+            const mensaje = `Hola, me gustaría obtener más información sobre el evento ${event.titulo}.`;
+
+            return (
               <div key={event.id} className={ESTILOS_TAG.card}>
-                <div className={`banner-gradient ${ESTILOS_TAG.banner}`}>
-                  <span className={ESTILOS_TAG.bannerText}>{event.titulo}</span>
+                <div
+                  className={
+                    event.image_url
+                      ? ESTILOS_TAG.media
+                      : `banner-gradient ${ESTILOS_TAG.fallbackBanner}`
+                  }
+                >
+                  {event.image_url ? (
+                    <img
+                      src={event.image_url}
+                      alt={`Cartel de ${event.titulo}`}
+                      className={ESTILOS_TAG.poster}
+                    />
+                  ) : (
+                    <span className={ESTILOS_TAG.bannerText}>
+                      {event.titulo}
+                    </span>
+                  )}
+
                   <span className={ESTILOS_TAG.badge}>
                     {event.plazas_limitadas
                       ? "Plazas limitadas"
@@ -73,26 +92,31 @@ const Events = () => {
                   </span>
                 </div>
 
-                <div className={ESTILOS_TAG.bodyContainer}>
-                  <p className={ESTILOS_TAG.fecha}>{event.fecha}</p>
-                  <h3 className={ESTILOS_TAG.bodyTitle}>{event.titulo}</h3>
-                  <p className={ESTILOS_TAG.bodyDescription}>
-                    {event.descripcion}
-                  </p>
-                </div>
+                <div className="flex flex-col justify-between">
+                  <div className={ESTILOS_TAG.bodyContainer}>
+                    <p className={ESTILOS_TAG.fecha}>{event.fecha}</p>
+                    <h3 className={ESTILOS_TAG.bodyTitle}>{event.titulo}</h3>
+                    <p className={ESTILOS_TAG.bodyDescription}>
+                      {event.descripcion}
+                    </p>
+                  </div>
 
-                <div className="flex justify-start items-center p-8">
-                  <ButtonComponent
-                    text="Más información"
-                    onClick={() => {
-                      /* window.open(event.link, "_blank") */
-                    }}
-                  />
+                  <div className="flex justify-center items-center p-8">
+                    <ButtonComponent
+                      text="Más información"
+                      onClick={() => {
+                        window.open(
+                          `https://wa.me/34654643717?text=${encodeURIComponent(mensaje)}`,
+                          "_blank",
+                        );
+                        /* window.open(event.link, "_blank") */
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
-            )}
-          </div>
-        ))}
+            );
+          })}
       </div>
     </div>
   );
