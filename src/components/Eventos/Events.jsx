@@ -18,7 +18,7 @@ const ESTILOS_TAG = {
   grid: "grid grid-cols-1 items-stretch gap-8 lg:grid-cols-[1fr_1fr] lg:gap-10",
   card: "bg-ag-card border border-ag-border relative overflow-hidden grid md:grid-cols-[minmax(240px,340px)_1fr]",
   media:
-    "relative flex items-center justify-center border-b border-ag-border bg-black/20  md:border-b-0 md:border-r md:min-h-[520px]",
+    "relative flex items-center justify-center border-b border-ag-border bg-black/20 md:border-b-0 md:border-r md:min-h-[520px]",
   poster: "h-auto max-h-[560px] w-full max-w-[300px] object-contain shadow-2xl",
   fallbackBanner:
     "min-h-[260px] flex items-center justify-center border-b border-ag-border md:border-b-0 md:border-r",
