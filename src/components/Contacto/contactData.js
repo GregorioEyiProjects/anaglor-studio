@@ -19,7 +19,7 @@ const CONTACT_DATA = [
   {
     id: 2,
     icon: faPhone,
-    title: "Teléfono",
+    title: "Whatsapp",
     description: "+34 654 643 717",
     link: "tel:+34654643717",
     hoverColor: "#25D366",
