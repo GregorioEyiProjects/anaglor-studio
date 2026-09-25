@@ -21,7 +21,7 @@ const CONTACT_DATA = [
     icon: faPhone,
     title: "Whatsapp",
     description: "+34 654 643 717",
-    link: "tel:+34654643717",
+    link: "https://wa.me/34654643717?text=Hola%2C%20he%20visto%20vuestra%20web%20y%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20vuestros%20servicios.",
     hoverColor: "#25D366",
   },
   {
