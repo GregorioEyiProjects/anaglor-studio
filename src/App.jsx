@@ -16,7 +16,7 @@ function App() {
     <div className="bg-ag-dark text-white scroll-smooth">
       <NavBar />
       <Hero />
-      {/* <Events /> */}
+      <Events />
       <Sobre />
       <Galeria />
       <Disciplinas />
